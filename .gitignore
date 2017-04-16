@@ -4,3 +4,8 @@
 node_modules/
 platforms/
 plugins/
+.idea
+bower_components/
+npm-debug.log
+.DS_Store
+www/lib

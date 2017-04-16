@@ -1,0 +1,31 @@
+<ion-view class="avatarPane" view-title="Avatar">
+    <div class="avatar-container">
+        <div class="row details offset" ng-class="{'offset': (devicePlatform === 'ios' && device === true)}">
+            <div class="col">
+                <div class="detail">
+                {{avatar.score}}
+                </div>
+                <p>
+                    Avatar Score
+                </p>
+            </div>
+            <div class="col">
+                <div class="detail">
+                    {{avatar.crowdAverage}}
+                </div>
+                <p>
+                    Community
+                </p>
+            </div>
+            <div class="col">
+                <div class="detail">
+                    {{avatar.userAverage}}
+                </div>
+                <p>
+                    User
+                </p>
+            </div>
+        </div>
+        <img class="avatar" ng-src="{{avatar.image}}">
+    </div>
+</ion-view>

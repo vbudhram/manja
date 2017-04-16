@@ -1,0 +1,24 @@
+<ion-view view-title="Settings" cache-view="false">
+    <ion-nav-buttons side="secondary">
+        <button class="button settings-nav-button" ng-click="logout()">Logout</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item href="#/tab/account/privacy">
+                <h2>Privacy Policy</h2>
+            </ion-item>
+            <ion-item href="#/tab/account/terms">
+                <h2>Terms and Conditions</h2>
+            </ion-item>
+            <!--<ion-item href="#/tab/account/eula">-->
+                <!--<h2>EULA</h2>-->
+            <!--</ion-item>-->
+            <ion-item ng-click="openEmail()">
+                <h2>Send Feedback</h2>
+            </ion-item>
+            <ion-item href="#/tab/account/about">
+                <h2>About Us</h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

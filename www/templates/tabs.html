@@ -1,0 +1,16 @@
+<!--<ion-tabs class="tabs-manja" ng-controller="TabsCtrl" ng-class="{'tabs-item-hide': hideTabs}">-->
+<ion-tabs class="tabs-manja" ng-controller="TabsCtrl">
+<!--<ion-tabs class="tabs-manja">-->
+    <ion-tab icon-on="ion-home" icon-off="ion-home" ui-sref="tab.feed">
+        <ion-nav-view name="tab-feed"></ion-nav-view>
+    </ion-tab>
+    <ion-tab icon-on="ion-ios-search-strong" icon-off="ion-ios-search-strong" ui-sref="tab.search">
+        <ion-nav-view name="tab-search"></ion-nav-view>
+    </ion-tab>
+    <ion-tab icon-on="ion-ios-camera" icon-off="ion-ios-camera" ui-sref="tab.camera">
+        <ion-nav-view name="tab-camera"></ion-nav-view>
+    </ion-tab>
+    <ion-tab icon-on="ion-android-person" icon-off="ion-android-person" ui-sref="tab.account">
+        <ion-nav-view name="tab-account"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

@@ -1,0 +1,19 @@
+<ion-view view-title="{{title}}" ng-init="init()">
+    <ion-nav-buttons side="primary">
+        <button class="button settings-nav-button" ng-click="close()" ng-if="closeButton">Close</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <div ng-repeat="user in users">
+                <a class="item item-avatar" href="{{user.href}}">
+                    <img ng-if="user._serverData.picture._url"
+                         ng-src="{{user._serverData.picture._url}}">
+                    <img ng-if="!user._serverData.picture._url"
+                         ng-src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">
+                    <h2>{{user._serverData.displayName}}</h2>
+                    <p>Orlando, Florida</p>
+                </a>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view hide-nav-bar="true">
+    <ion-pane class="mainPane">
+        <form>
+            <div class="contentPane">
+                <div class="row">
+                    <div class="col">
+                        <img class="center splash-logo" src="img/splash_logo.png">
+                    </div>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Username" ng-model="username">
+                    </label>
+                    <label class="item item-input">
+                        <input type="text" placeholder="Email" ng-model="email">
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" placeholder="Password" ng-model="password">
+                    </label>
+                </div>
+                <div class="row" ng-click="signup()">
+                    <div class="col">
+                        <a class="button center clear-border-button">Sign up</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="terms">
+                            By continuing you indicate that you have read and agree to the <a ng-click="eulaModal.show()">Terms of Service</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-pane>
+    <ion-footer-bar class="footerPane" align-title="left">
+        <div class="buttons">
+            <a nav-transition="none" class="button" href="#/main"><i class="icon ion-chevron-left pull-left"></i></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,120 @@
+<ion-view view-title="Account" ng-init="init()">
+    <ion-nav-title class="nav-container">
+        <img class="nav-logo" image-lazy-src="img/manja_nav_logo.png">
+    </ion-nav-title>
+    <ion-nav-buttons side="secondary" ng-if="isSelf">
+        <a href="#/tab/account/settings" class="button icon ion-gear-a settings-nav-button"></a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="primary">
+        <button class="button settings-nav-button" ng-click="close()" ng-if="closeButton">Close
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="accountPane">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <button class="button" ng-click="clickedFollow()" ng-if="!isSelf">
+            <img ng-src="img/follow_button.png" ng-if="canFollow">
+            <img ng-src="img/unfollow_button.png" ng-if="!canFollow">
+            <!--<i class="icon ion-plus-circled fa-2x follow" ng-if="canFollow"></i>-->
+            <!--<i class="icon ion-minus-circled fa-2x unfollow" ng-if="!canFollow"></i>-->
+        </button>
+        <button class="blockButton" ng-click="blockUser()" ng-if="!isSelf">
+            <i class="icon ion-android-cancel fa-2x"></i>
+        </button>
+        <div class="information-panel row">
+            <div class="profile-img">
+                <img ng-src="{{currentUser.picture._url}}"/>
+
+                <div class="level">
+                    <p class="text">{{currentUser.lvl}}</p>
+                </div>
+            </div>
+
+            <div class="user-info">
+                <div class="row name" ng-bind="currentUser.displayName">
+                </div>
+                <!--<div class="row location">-->
+                    <!--<i class="icon ion-location"></i> Orlando, Florida-->
+                <!--</div>-->
+                <!--<div class="row level-stat">-->
+                    <!--<div class="row">-->
+                        <!--<div class="level-title">-->
+                            <!--Level: {{currentUser.lvl}}-->
+                        <!--</div>-->
+                        <!--<div class="level-points">-->
+                            <!--{{currentUser.curXP}}/{{currentUser.nextXP}} pts-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row level-bar">-->
+                    <!--<div class="level-bar-fill">-->
+                    <!--</div>-->
+                    <!--<div class="level-bar-empty">-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="stats row">
+            <!--<div class="stat col col-25">-->
+                <!--<div class="rating">-->
+                    <!--4.5-->
+                <!--</div>-->
+                <!--<div class="type">-->
+                    <!--Rating-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="stat col col-25">
+                <div class="rating">
+                    {{uploadCount}}
+                </div>
+                <div class="type">
+                    Uploads
+                </div>
+            </div>
+            <div class="stat col col-25">
+                <div class="rating">
+                    <a href="#/user/{{currentUser.id}}/followers">
+                        {{followerCount}}
+                    </a>
+                </div>
+                <div class="type">
+                    Followers
+                </div>
+            </div>
+            <div class="stat col col-25">
+                <div class="rating">
+                    <a href="#/user/{{currentUser.id}}/following">
+                        {{followingCount}}
+                    </a>
+                </div>
+                <div class="type">
+                    Following
+                </div>
+            </div>
+        </div>
+        <div class="options row">
+            <div class="option col">
+                <!--<a ui-sref="tab.account.history"><img src="img/account_history.png"></a>-->
+                <a><img ng-src="img/account_history.png"></a>
+            </div>
+            <!--<div class="option col">-->
+            <!--<a ui-sref="tab.account.profile"><img src="img/account_profile.png"></a>-->
+            <!--</div>-->
+            <!--<div class="option col">-->
+            <!--<a ui-sref="tab.account.stats"><img src="img/account_stats.png"></a>-->
+            <!--</div>-->
+            <div class="option col" ng-if="isSelf">
+                <a ui-sref="tab.account-avatar"><img src="img/account_avatar.png"></a>
+            </div>
+        </div>
+        <div class="account-history">
+            <div class="row" ng-repeat="row in rowParts">
+                <div class="col col-33" ng-class="$index % 2 === 0" ng-repeat="post in row" ng-click="openModal(post)">
+                    <img class="picture" ng-src="{{post._serverData.imageFile._url}}"/>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

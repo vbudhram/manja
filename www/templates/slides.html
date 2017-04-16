@@ -1,0 +1,36 @@
+<ion-view hide-nav-bar="true">
+    <ion-pane class="mainPane slidePane">
+        <ion-slide-box show-pager="true" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <div class="title">News Feed</div>
+                <p>Rate friends' dishes by using the dots at the bottom of each photo and give them a high five or
+                    comment
+                    for motivation.</p>
+                <img src="img/slide_feed2.png">
+            </ion-slide>
+            <ion-slide>
+                <div class="title">Profile</div>
+                <p>Keep a detailed food diary of your daily meals, interact with friends, and access a wide variety of
+                    stats.</p>
+                <img src="img/slide_profile2.png">
+            </ion-slide>
+            <ion-slide>
+                <div class="title">Avatar</div>
+                <p>View a virtual avatar that represents your daily food intake.</p>
+                <img src="img/slide_avatar.png">
+            </ion-slide>
+            <!--<ion-slide>-->
+                <!--<div class="title">Stats</div>-->
+                <!--<p>Keep track of your progress with a detailed dashboard that tracks user and crowd ratings, total-->
+                    <!--uploads,-->
+                    <!--avatar and much more.</p>-->
+                <!--<img src="img/slide_stats.png">-->
+            <!--</ion-slide>-->
+        </ion-slide-box>
+    </ion-pane>
+    <ion-footer-bar class="footerPane" align-title="left">
+        <div class="buttons">
+            <a class="button" nav-transition="none" href="#/main"><i class="icon ion-chevron-left pull-left"></i></a>
+        </div>
+    </ion-footer-bar>
+</ion-view>

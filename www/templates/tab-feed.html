@@ -1,0 +1,142 @@
+<ion-view view-title="Manja">
+    <ion-nav-title class="nav-container">
+        <img class="nav-logo" ng-src="img/manja_nav_logo.png">
+    </ion-nav-title>
+    <ion-content ng-init="init()" lazy-scroll>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <div class="list">
+            <div class="item item-button-right" ng-if="posts.length === 0">
+                <h2>Add to your feed</h2>
+
+                <p>
+                    Upload or following people!
+                </p>
+            </div>
+            <div class="item feed-cell" ng-repeat="post in posts">
+                <div class="feed-cell-header">
+                    <div class="avatar">
+                        <a href="#/user/{{post._serverData.user.id}}">
+                            <img ng-if="post._serverData.user._serverData.picture._url"
+                                 ng-src="{{post._serverData.user._serverData.picture._url}}">
+                            <img ng-if="!post._serverData.user._serverData.picture._url"
+                                 ng-src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">
+                        </a>
+                    </div>
+                    <div class="information">
+                        <a class="name" href="#/user/{{post._serverData.user.id}}">{{post._serverData.user._serverData.displayName}}</a>
+                    </div>
+
+                    <div class="information pull-right">
+                        <div class="time">
+                            {{post.createdAt | date : 'short' : timezone}} <i class="icon ion-clock"></i>
+                            <span am-time-ago="post.createdAt" am-preprocess="unix"></span>
+                        </div>
+                    </div>
+
+                    <!--<a class="avatar" href="#/user/{{post._serverData.user.id}}">-->
+                    <!--<img ng-if="post._serverData.user._serverData.picture._url"-->
+                    <!--ng-src="{{post._serverData.user._serverData.picture._url}}">-->
+                    <!--<img ng-if="!post._serverData.user._serverData.picture._url"-->
+                    <!--ng-src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">-->
+                    <!--</a>-->
+
+                    <!--<div class="information">-->
+                    <!--<a class="name" href="#/user/{{post._serverData.user.id}}">{{post._serverData.user._serverData.displayName}}</a>-->
+
+                    <!--&lt;!&ndash;<div class="location"><i class="icon ion-location"></i> Orlando, Florida</div>&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="since-time">-->
+                        <!--<div class="time">-->
+                            <!--{{post.createdAt | date : 'short' : timezone}} <i class="icon ion-clock"></i>-->
+                            <!--<span am-time-ago="post.createdAt" am-preprocess="unix"></span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="feed-cell-media" ng-click="openImageModal(post)">
+                    <img class="image" ng-src="{{post._serverData.imageFile._url}}">
+                </div>
+                <div class="row rate-scale-feed" ng-if="!post.rated">
+                    <div class="col title">Health</div>
+                    <div class="col" ng-click="addRating(post, 2)">
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                    <div class="col" ng-click="addRating(post, 4)">
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                    <div class="col" ng-click="addRating(post, 6)">
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                    <div class="col" ng-click="addRating(post, 8)">
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                    <div class="col" ng-click="addRating(post, 10)">
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                </div>
+
+                <div class="feed-cell-comments">
+                    <!--<div class="row">-->
+                    <div class="comments-logo" ng-click="openCommentModal(post)"><i class="icon ion-chatbox"></i></div>
+                    <!--<div class="row">-->
+                    <div class="comments-section">
+                        <div class="comment item-text-wrap">
+                            <p>
+                                <a class="name" href="#/user/{{post._serverData.user.id}}">
+                                    {{post._serverData.user._serverData.displayName}}
+                                </a> {{post._serverData.description}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--<div class="comments-logo"><i class="icon ion-chatbox"></i></div>-->
+                    <!--<div class="comments-section">-->
+                    <!--<div class="comment item-text-wrap">-->
+                    <!--<a class="name" href="#/user/{{post._serverData.user.id}}">-->
+                    <!--{{post._serverData.user._serverData.displayName}}-->
+                    <!--</a>-->
+                    <!--<p>-->
+                    <!--{{post._serverData.description}}-->
+                    <!--</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="comments-section">-->
+                    <!--<div class="comment item-text-wrap">-->
+                    <!--<div class="name">{{post._serverData.user.displayName}}</div>-->
+                    <!--I'm having so much fun at the food festival. I'm having so much fun at the food festival. I'm having so much fun at the food festival-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <a class="more-comments" ng-click="openCommentModal(post)">{{post.attributes.commentCount}}
+                        Comments</a>
+
+                    <div class="social-options">
+                        <div class="social-option-enable" ng-click="likePost(post)">
+                            <div class="social-option-content">
+                                <i class="icon ion-android-hand"></i>
+                                {{post._serverData.fives.length || 0}}
+                            </div>
+                        </div>
+                        <div class="social-option-enable">
+                            <div class="social-option-content">
+                                <i class="icon ion-star"></i>
+                                {{post._serverData.average}}
+                            </div>
+                        </div>
+                        <div class="social-option-enable" ng-click="flagPost(post)">
+                            <div class="social-option-content">
+                                Flag
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll
+                on-infinite="loadMoreFeed()"
+                distance="1%"
+                immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

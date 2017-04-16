@@ -1,0 +1,40 @@
+<ion-view hide-nav-bar="true">
+    <ion-pane class="mainPane">
+        <div class="contentPane" ng-controller="LoginCtrl">
+            <div class="row">
+                <div class="col">
+                    <img class="center splash-logo pad-bottom-150" src="img/splash_logo.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <!--<a nav-transition="none" href="#/tab/feed" class="button center fb-button"><i class="fa fa-lg fa-facebook"></i> Sign Up With Facebook</a>-->
+                    <a nav-transition="none" ng-click="facebookLogin()" class="button center fb-button"><i class="fa fa-lg fa-facebook"></i> Sign Up With Facebook</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a nav-transition="none" href="#/signup" class="button center clear-border-button">Sign Up With Email</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a nav-transition="none" href="#/login" class="button center clear-button" >Login</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="terms">
+                        By continuing you indicate that you have read and agree to the <a ng-click="eulaModal.show()">Terms of Service</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ion-pane>
+    <ion-footer-bar class="footerPane" align-title="left">
+        <div class="buttons">
+            <a class="button" nav-transition="none" href="#/slides"><i class="icon ion-chevron-left pull-left"></i></a>
+        </div>
+        <a class="title" nav-transition="none" href="#/slides">Swipe to learn more</a>
+    </ion-footer-bar>
+</ion-view>

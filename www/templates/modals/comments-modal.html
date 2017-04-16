@@ -1,0 +1,59 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-stable">
+        <h1 class="title">Comments</h1>
+        <button class="button button-clear button-primary" ng-click="commentModal.hide()">Close</button>
+    </ion-header-bar>
+    <ion-content class="commentPane">
+        <ion-list>
+            <div class="comment-container top-comment">
+                <a class="comment-avatar" href="#/user/{{selectedPost.attributes.user.id}}" ng-click="commentModal.hide()">
+                    <img ng-if="selectedPost.attributes.user.attributes.picture._url"
+                         ng-src="{{selectedPost.attributes.user.attributes.picture._url}}">
+                    <img ng-if="!selectedPost.attributes.user.attributes.picture._url"
+                         ng-src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">
+                </a>
+                <div class="comment-details">
+                    <a class="name" href="#/user/{{selectedPost.attributes.user.id}}" ng-click="commentModal.hide()">
+                        {{selectedPost.attributes.user.attributes.displayName}}
+                    </a>
+                    <div class="text">
+                        {{selectedPost.attributes.description}}
+                    </div>
+                </div>
+            </div>
+            <div class="comment-container" ng-repeat="comment in comments">
+                <a class="comment-avatar" href="#/user/{{comment.attributes.User.id}}" ng-click="commentModal.hide()">
+                    <img ng-if="comment.attributes.User.attributes.picture._url"
+                         ng-src="{{comment.attributes.User.attributes.picture._url}}">
+                    <img ng-if="!comment.attributes.User.attributes.picture._url"
+                         ng-src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">
+                </a>
+                <div class="comment-details">
+                    <a class="name" href="#/user/{{comment.attributes.User.id}}" ng-click="commentModal.hide()">
+                        {{comment.attributes.User.attributes.displayName}}
+                    </a>
+                    <div class="text">
+                        {{comment.attributes.comment}}
+                    </div>
+                </div>
+            </div>
+            <!--<div class="comment-container">-->
+                <!--<div class="comment-avatar">-->
+                    <!--<img src="http://files.parsetfss.com/18761c9b-2909-46df-851a-faa69a390d35/tfss-b170e544-39e0-488f-91c9-2ae413965a40-image.png">-->
+                <!--</div>-->
+                <!--<div class="comment-details">-->
+                    <!--<div class="name">-->
+                        <!--Vijay Budhram-->
+                    <!--</div>-->
+                    <!--<div class="text">-->
+                        <!--This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome! This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!This is awesome!-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar keyboard-attach class="comment-post">
+        <input placeholder="Add a comment..." ng-model="comment.text">
+        <button ng-click="addComment()">Post</button>
+    </ion-footer-bar>
+</ion-modal-view>

@@ -1,0 +1,81 @@
+<ion-view view-title="Post" cache-view="false">
+    <ion-nav-title class="nav-container">
+        <img class="nav-logo" src="img/manja_nav_logo.png">
+    </ion-nav-title>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-content class="postPane">
+        <div class="row">
+            <div class="col">
+                <!--<img id="post-image" class="placeholder-img" data-ng-src="{{imageUri}}">-->
+                <img id="post-image" class="placeholder-img">
+            </div>
+            <div class="col col-75">
+                <textarea rows="5" placeholder="Write a caption..." ng-model="description.text" type="text"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <!--<div class="col">-->
+                <!--<i class="icon ion-location"></i>-->
+                <!--Location-->
+            <!--</div>-->
+            <!--<div class="col col-75">-->
+            <!--</div>-->
+        </div>
+        <div>
+            <div class="row" ng-if="false">
+                <div class="col setting">
+                    What type of meal is this?
+                </div>
+            </div>
+            <div class="row" ng-if="false">
+                <div class="col col-33">
+                    <a class="meal-option">Breakfast</a>
+                </div>
+                <div class="col col-33">
+                    <a class="meal-option">Lunch</a>
+                </div>
+                <div class="col col-33">
+                    <a class="meal-option">Dinner</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col setting">
+                    How healthy is this meal?
+                </div>
+            </div>
+            <div class="row">
+                <div class="rate-scale">
+                    <div class="rate-bubble">
+                        <div ng-click="selectStar('star0')" ng-class="{'rate-bubble-filled' : star0 === true, 'rate-bubble-empty': star0 === false}"></div>
+                        <div ng-click="selectStar('star1')" ng-class="{'rate-bubble-filled' : star1 === true, 'rate-bubble-empty': star1 === false}"></div>
+                        <div ng-click="selectStar('star2')" ng-class="{'rate-bubble-filled' : star2 === true, 'rate-bubble-empty': star2 === false}"></div>
+                        <div ng-click="selectStar('star3')" ng-class="{'rate-bubble-filled' : star3 === true, 'rate-bubble-empty': star3 === false}"></div>
+                        <div ng-click="selectStar('star4')" ng-class="{'rate-bubble-filled' : star4 === true, 'rate-bubble-empty': star4 === false}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="false">
+                <div class="col setting">
+                    How tasty is this meal?
+                </div>
+            </div>
+            <div class="row" ng-if="false">
+                <div class="rate-scale">
+                    <div class="rate-bubble">
+                        <div class="rate-bubble-filled"></div>
+                        <div class="rate-bubble-filled"></div>
+                        <div class="rate-bubble-filled"></div>
+                        <div class="rate-bubble-filled"></div>
+                        <div class="rate-bubble-empty"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="button button-balanced submit-button" ng-click="submit()">
+                Post
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

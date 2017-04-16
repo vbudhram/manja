@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- parse/parse-1.4.2.js -->
+    <script src="lib/parse/parse-1.4.2.js"></script>
+
+    <!-- bluebird.js -->
+    <script src="https://cdn.jsdelivr.net/bluebird/latest/bluebird.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- facebook -->
+    <script src="lib/facebook/openfb.js"></script>
+    <script src="lib/facebook/ngopenfb.js"></script>
+
+    <!-- app's js -->
+    <script src="js/app.js"></script>
+
+    <!-- directives -->
+    <script src="lib/image-lazy-load/ionic-image-lazy-load.js"></script>
+    <script src="lib/ionic-zoom-view/dist/ionic-zoom-view.js"></script>
+
+    <!-- controllers -->
+    <script src="js/controllers/controllers.js"></script>
+    <script src="js/controllers/camera-ctrl.js"></script>
+    <script src="js/controllers/tabs-ctrl.js"></script>
+    <script src="js/controllers/account-ctrl.js"></script>
+    <script src="js/controllers/account-history-ctrl.js"></script>
+    <script src="js/controllers/feed-ctrl.js"></script>
+    <script src="js/controllers/login-ctrl.js"></script>
+    <script src="js/controllers/upload-ctrl.js"></script>
+    <script src="js/controllers/settings-ctrl.js"></script>
+    <script src="js/controllers/signup-ctrl.js"></script>
+    <script src="js/controllers/search-ctrl.js"></script>
+    <script src="js/controllers/followers-ctrl.js"></script>
+    <script src="js/controllers/following-ctrl.js"></script>
+    <script src="js/controllers/avatar-ctrl.js"></script>
+
+    <!-- services -->
+    <script src="js/services/services.js"></script>
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/user-service.js"></script>
+    <script src="js/services/post-service.js"></script>
+
+    <!-- directives -->
+    <script src="js/directives/hideTabs.js"></script>
+    <!--<script src="lib/moment/moment.js"></script>-->
+    <!--<script src="lib/angular-timeago/src/timeAgo.js"/>-->
+    <!--<script src="lib/angular-moment/angular-moment.js"></script>-->
+    <!--<script src="lib/ng-timeago/ngtimeago.js"></script>-->
+    <script src="lib/wookmark-jquery/wookmark.js"></script>
+
+</head>
+<body ng-app="starter">
+
+<!-- Facebook initialization -->
+<script>
+    // Initialize Parse
+    // Production
+    // Parse.initialize("PROD", "PROD");
+
+    // Dev
+    Parse.initialize("DEV", "DEV");
+
+    // Test
+    window.fbAsyncInit = function() {
+
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+            appId      : '423878617770328', // Facebook App ID
+            status     : true,  // check Facebook Login status
+            cookie     : true,  // enable cookies to allow Parse to access the session
+            xfbml      : true,  // initialize Facebook social plugins on the page
+            version    : 'v2.3' // point to the latest Facebook Graph API version
+        });
+
+        console.log('Facebook init...');
+        // Run code after the Facebook SDK is loaded.
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!--
+  The nav bar that will be updated as we navigate between views.
+-->
+<ion-pane>
+    <ion-nav-bar animation="nav-title-slide-ios7" type="bar-clear" back-button-type="button-icon" back-button-icon="ion-ios7-arrow-left">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+</ion-pane>
+
+<!--<ion-nav-view></ion-nav-view>-->
+</body>
+</html>

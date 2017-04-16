@@ -1,0 +1,13 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header bar-stable">
+        <h1 class="title">Post</h1>
+        <button class="button button-clear button-secondary" ng-click="flagPostModal(imageModal.post)">Flag</button>
+        <button class="button button-clear button-primary" ng-click="imageModal.hide()">Close</button>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <ion-scroll zooming="true" direction="xy" delegate-handle="zoom-pane" class="zoom-pane" min-zoom="1"
+                    scrollbar-x="false" scrollbar-y="false">
+            <img ng-src="{{imgUrl}}">
+        </ion-scroll>
+    </ion-content>
+</ion-modal-view>

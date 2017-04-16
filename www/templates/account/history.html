@@ -1,0 +1,7 @@
+<div class="account-history">
+    <div class="row" ng-repeat="row in rowParts">
+        <div class="col col-50" ng-repeat="post in row">
+            <img class="picture" image-lazy-src="{{post._serverData.imageFile._url}}" image-lazy-loader="lines"/>
+        </div>
+    </div>
+</div>
